@@ -14,6 +14,7 @@
 ## Limitations and known issues
 
 ### General
+ * Documentation is limited to annotation in header files.
  * Though the client and embedded SDKs are, with this release,
    considered ready for production, the Nabto basestation has yet to
    be release for production. This means that the development
