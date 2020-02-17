@@ -254,6 +254,7 @@ nabto_client_listener_connection_event(NabtoClientListener* listener, NabtoClien
 // todo make a init function as in the device
 NABTO_CLIENT_DECL_PREFIX NabtoClientError nabto_client_connection_events_init_listener(NabtoClientConnection* connection, NabtoClientListener* listener);
 
+
 #ifdef __cplusplus
 } // extern C
 #endif

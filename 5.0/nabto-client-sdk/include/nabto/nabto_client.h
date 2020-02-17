@@ -101,6 +101,7 @@ NABTO_CLIENT_DECL_PREFIX extern const NabtoClientError NABTO_CLIENT_EC_OK;
 
 NABTO_CLIENT_DECL_PREFIX extern const NabtoClientError NABTO_CLIENT_EC_ABORTED;
 NABTO_CLIENT_DECL_PREFIX extern const NabtoClientError NABTO_CLIENT_EC_BAD_RESPONSE;
+NABTO_CLIENT_DECL_PREFIX extern const NabtoClientError NABTO_CLIENT_EC_BAD_REQUEST;
 NABTO_CLIENT_DECL_PREFIX extern const NabtoClientError NABTO_CLIENT_EC_CLOSED;
 NABTO_CLIENT_DECL_PREFIX extern const NabtoClientError NABTO_CLIENT_EC_DNS;
 NABTO_CLIENT_DECL_PREFIX extern const NabtoClientError NABTO_CLIENT_EC_EOF;
@@ -119,6 +120,9 @@ NABTO_CLIENT_DECL_PREFIX extern const NabtoClientError NABTO_CLIENT_EC_PORT_IN_U
 NABTO_CLIENT_DECL_PREFIX extern const NabtoClientError NABTO_CLIENT_EC_STOPPED;
 NABTO_CLIENT_DECL_PREFIX extern const NabtoClientError NABTO_CLIENT_EC_TIMEOUT;
 NABTO_CLIENT_DECL_PREFIX extern const NabtoClientError NABTO_CLIENT_EC_UNKNOWN;
+NABTO_CLIENT_DECL_PREFIX extern const NabtoClientError NABTO_CLIENT_EC_NONE;
+NABTO_CLIENT_DECL_PREFIX extern const NabtoClientError NABTO_CLIENT_EC_NOT_ATTACHED;
+
 
 
 typedef enum NabtoClientConnectionType_ {
@@ -583,7 +587,9 @@ nabto_client_connection_end_of_direct_candidates(NabtoClientConnection* connecti
  *         NABTO_CLIENT_EC_INVALID_STATE if the connection is
  * missing required options.
  *         NABTO_CLIENT_EC_NO_CHANNELS if no channels could be created. see
- * nabto_client_connection_get_info for what went wrong.
+ *         nabto_client_connection_get_local_channel_error_code and
+ *         nabto_client_connection_get_remote_channel_error_code or
+ *         nabto_client_connection_get_info for what went wrong.
  *         NABTO_CLIENT_EC_NOT_CONNECTED if the the connection failed for some
  * unspecified reason.
  *
@@ -601,6 +607,31 @@ nabto_client_connection_connect(NabtoClientConnection* connection, NabtoClientFu
  */
 NABTO_CLIENT_DECL_PREFIX void NABTO_CLIENT_API
 nabto_client_connection_close(NabtoClientConnection* connection, NabtoClientFuture* future);
+
+/**
+ * Get error code for the local channel
+ *
+ * @return NABTO_CLIENT_EC_OK if the device was found using mdns.
+ *         NABTO_CLIENT_EC_NONE if mdns discovery was not enabled for the connection.
+ *         NABTO_CLIENT_EC_NOT_FOUND if mdns was enabled but the device was not found.
+ *         NABTO_CLIENT_EC_OPERATION_IN_PROGRESS if scanning is still in progress
+ */
+NABTO_CLIENT_DECL_PREFIX NabtoClientError nabto_client_connection_get_local_channel_error_code(NabtoClientConnection* connection);
+
+/**
+ * Get error code for the remote channel
+ *
+ * @return NABTO_CLIENT_EC_OK  if a remote relay channel was made.
+ *         NABTO_CLIENT_EC_NONE  if remote relay was not enabled.
+ *         NABTO_CLIENT_EC_NOT_FOUND  if the device is not known to the basestation.
+ *         NABTO_CLIENT_EC_NOT_ATTACHED  if the device is not attached to the basestation
+ *         NABTO_CLIENT_EC_TIMEOUT  if a timeout occured when connecting to the basestation.
+ *         NABTO_CLIENT_EC_OPERATION_IN_PROGRESS  if the opening of the channel is still in progress
+ *         NABTO_CLIENT_EC_FORBIDDEN  if the basestation request is rejected.
+ *         NABTO_CLIENT_EC_DNS  if dns could not be resolved.
+ */
+NABTO_CLIENT_DECL_PREFIX NabtoClientError nabto_client_connection_get_remote_channel_error_code(NabtoClientConnection* connection);
+
 
 /**
  * Get information about a connection
@@ -818,7 +849,7 @@ nabto_client_coap_free(NabtoClientCoap* coap);
  * not be used after the function has returned.
  */
 NABTO_CLIENT_DECL_PREFIX NabtoClientError NABTO_CLIENT_API
-nabto_client_coap_set_request_payload(NabtoClientCoap* coap, uint16_t contentFormat, void* payload, size_t payloadLength);
+nabto_client_coap_set_request_payload(NabtoClientCoap* coap, uint16_t contentFormat, const void* payload, size_t payloadLength);
 
 /**
  * Execute a coap request. After this function has succeeded the
