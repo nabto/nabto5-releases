@@ -1,29 +1,10 @@
 # Nabto 5.1.0 release
 
-## Breaking changes
-### Embedded SDK
+With the Nabto 5.1.0 release, full documentation is available at https://docs.nabto.com.
 
-### Client SDK
+For an ultra quick start, see below.
 
-## Improvements over last release
-
-## Limitations and known issues
-
-### General
-
-### Embedded SDK
-
-### Client SDK
-
-### Examples
-
-## Getting started
-
-To get started using this release, first build both SDK's, then try
-each example.
-
-
-### building client examples
+## Building Client Examples
 ```
 git clone https://github.com/nabto/nabto5-releases.git
 mkdir rbuild
@@ -36,7 +17,7 @@ cd ..
 This will build the client examples in the directory.
 
 
-### building embedded examples
+## Building Embedded Examples
 
 ```
 git clone --recursive https://github.com/nabto/nabto-embedded-sdk.git
@@ -47,27 +28,26 @@ make
 cd ..
 ```
 
-### Running the examples
+## Running the examples
 
-Two examples exists with both client and embedded device implementation present in the public repositories.
+Two examples exist with both client and embedded device implementation present in the public repositories.
 
-* simple_coap_get - a very simple coap based hello world request/response example without any authentication etc.
-* tcp_tunnel_client/server - a TCP tunnel client and server to remote connect and stream to a port on the embedded device
+* simple_coap_get - a very simple coap based hello world request/response example without any authentication etc. - see https://docs.nabto.com/developer/guides/get-started/plainc/examples.html
 
+* tcp_tunnel_client/server - a TCP tunnel client and server to remote connect and stream to a port on the embedded device - see https://docs.nabto.com/developer/guides/get-started/tunnels/quickstart.html
 
+## Note on local connections
 
-### Note on local connections
-When running the examples, a Server Key is required on the client,
-and the device fingerprint must be registered on the basestation. If
-the Server Key is invalid, the client will not be allowed access
-to the basestation, similarly, if the device fingerprint is invalid
-the device will not be allowed to attach to the basestation. In this
-scenario, the client would still be able to discover and connect to
-the device if they are on the same local network using mDNS.
+When running the examples, a Server Key is required on the client, and the device fingerprint must
+be registered on the basestation. If the Server Key is invalid, the client will not be allowed
+access to the basestation, similarly, if the device fingerprint is invalid the device will not be
+allowed to attach to the basestation. In this scenario, the client would still be able to discover
+and connect to the device if they are on the same local network using mDNS.
 
 ### Running the TCP tunnel example
 
 Read more on how to setup the tunnels here:
+
 https://docs.nabto.com/developer/guides/get-started/tunnels/quickstart.html
 
 Go to the Nabto cloud console and retrieve a device configuration
@@ -129,7 +109,7 @@ Press 'y'
 
 ```
 Connected to the device
-Choose a pairing method 
+Choose a pairing method
 [0] Password
 [1] Local
 ```
@@ -139,4 +119,3 @@ Press 1
 Now the client is paired with the device
 
 You should be able to follow the Quick Start guide on how to start the tunnel
-
