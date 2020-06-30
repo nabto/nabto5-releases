@@ -1,4 +1,4 @@
-# Nabto 5.0.0 release
+# Nabto 5.1.0 release
 
 ## Breaking changes
 ### Embedded SDK
