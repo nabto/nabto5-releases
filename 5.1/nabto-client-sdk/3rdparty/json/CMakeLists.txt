@@ -1,0 +1,7 @@
+set(src_dir ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
+add_library(3rdparty_json INTERFACE)
+target_include_directories(3rdparty_json INTERFACE ${src_dir})
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  target_compile_options(3rdparty_json INTERFACE -Wno-psabi)
+endif()
