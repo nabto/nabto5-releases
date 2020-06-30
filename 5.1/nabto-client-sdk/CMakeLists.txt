@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(nabto-client-sdk)
 
-include_directories(include)
+include_directories(include .)
 
 if ("x_${CMAKE_HOST_SYSTEM_NAME}" STREQUAL "x_Linux")
   LINK_DIRECTORIES(linux)
@@ -20,5 +20,5 @@ add_subdirectory(cpp_wrapper)
 add_subdirectory(examples/common)
 
 #add_subdirectory(examples/heat_pump)
-add_subdirectory(examples/tcptunnel)
-add_subdirectory(examples/stream_echo)
+add_subdirectory(examples/tcp_tunnel_client)
+add_subdirectory(examples/simple_coap_get)
