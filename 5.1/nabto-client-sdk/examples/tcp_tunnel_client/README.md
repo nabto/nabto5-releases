@@ -25,8 +25,8 @@ be provided with the `--config` option, or will default to
 Console.
 
 Once a client is paired with a heat pump a file called
-`heat_pump_client_state.json` is created. The file contains all the
-information which is neccessary to communicate with the heatpump.
+`tcp_tunnel_client_state.json` is created. The file contains all the
+information which is neccessary to communicate with the TCP tunnel.
 
 ## Usage
 

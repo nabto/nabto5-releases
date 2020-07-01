@@ -18,15 +18,7 @@ This will build the client examples in the directory.
 
 
 ## Building Embedded Examples
-
-```
-git clone --recursive https://github.com/nabto/nabto-embedded-sdk.git
-mkdir ebuild
-cd ebuild
-cmake ../nabto-embedded-sdk
-make
-cd ..
-```
+The embedded examples are build from the [Nabto embedded SDK](https://github.com/nabto/nabto-embedded-sdk) repository using the [getting started guide](https://docs.nabto.com/developer/guides/get-started/embedded/intro.html#desktop).
 
 ## Running the examples
 
@@ -82,6 +74,14 @@ Start the program again and now you should see the following message informing y
 Attached to the basestation
 ```
 
+Retrieve the client configuration from the Nabto cloud console like so:
+
+```
+{
+  "ServerUrl": "https://pr-aaaaaaaa.clients.nabto.net",
+  "ServerKey": "sk-64fc4987bc60d6c3fae53348b7da33c1"
+}
+```
 
 You should now be able to connect to your device using the example
 client. First the client must be paired with the device using the
