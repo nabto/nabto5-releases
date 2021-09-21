@@ -1,6 +1,9 @@
 # Nabto5-releases
 
-nabto-embedded-sdk releases for nabto edge 5.2+ exists on github. [nabto-embedded-sdk](https://github.com/nabto/nabto-embedded-sdk)
+In releases for Nabto Edge 5.2+, only the Nabto Client SDK is released on this repo. For future releases:
 
-This repository contains released software for the Nabto 5 platform. Each release has its own folder named as the version number of that release. A full release consists of a Nabto Embedded SDK release, a Nabto Client SDK release, and a number of example applications showing how to use the SDKs. Each release will have a README detailing the release
-.
+* [nabto-embedded-sdk](https://github.com/nabto/nabto-embedded-sdk) is released on Github.
+* [Nabto Client Edge Tunnel](https://github.com/nabto/nabto-client-edge-tunnel) is released on Github.
+* [Nabto Client SDK Examples](https://github.com/nabto/nabto-client-sdk-examples) is released on Github.
+
+This repository contains released software for the Nabto 5 platform. Each release has its own folder named as the version number of that release.
