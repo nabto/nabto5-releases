@@ -1,5 +1,8 @@
 # Nabto5-releases
 
+__DEPRECATED__: All new Nabto Client SDK libraries are released on the [Nabto Client SDK Releases repo](https://github.com/nabto/nabto-client-sdk-releases/releases/latest). This repo only contains Nabto Client SDK v5.12.0 and earlier.
+
+
 In releases for Nabto Edge 5.2+, only the Nabto Client SDK is released on this repo. For future releases:
 
 * [nabto-embedded-sdk](https://github.com/nabto/nabto-embedded-sdk) is released on Github.
